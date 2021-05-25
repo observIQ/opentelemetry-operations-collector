@@ -7,6 +7,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter v0.27.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricstransformprocessor v0.27.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor v0.27.0
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver v0.27.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver v0.27.1-0.20210520014849-f89ebd27b3e5
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusexecreceiver v0.27.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver v0.27.0
