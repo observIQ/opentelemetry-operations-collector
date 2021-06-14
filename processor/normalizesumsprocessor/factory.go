@@ -41,6 +41,7 @@ func createDefaultConfig() config.Processor {
 	return &Config{
 		ProcessorSettings: &settings,
 		Transforms:        []SumMetrics{},
+		TransformAllSums:  false,
 	}
 }
 
@@ -56,7 +57,7 @@ func createMetricsProcessor(
 	if err := validateConfiguration(oCfg); err != nil {
 		return nil, err
 	}
-	metricsProcessor := newNormalizeSumsProcessor(params.Logger, oCfg.Transforms)
+	metricsProcessor := newNormalizeSumsProcessor(params.Logger, oCfg.Transforms, oCfg.TransformAllSums)
 	return processorhelper.NewMetricsProcessor(
 		cfg,
 		nextConsumer,

@@ -22,6 +22,9 @@ type Config struct {
 
 	// Transforms describes the metrics that will be transformed
 	Transforms []SumMetrics `mapstructure:"transforms"`
+
+	// TransformAllSums instructs the processor to transform any sum metrics
+	TransformAllSums bool `mapstructure:"transform_all_sums"`
 }
 
 // Metric defines the transformation applied to the specific metric

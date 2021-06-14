@@ -33,20 +33,22 @@ import (
 )
 
 type testCase struct {
-	name       string
-	inputs     []pdata.Metrics
-	expected   pdata.Metrics
-	transforms []SumMetrics
+	name         string
+	inputs       []pdata.Metrics
+	expected     pdata.Metrics
+	transforms   []SumMetrics
+	transformAll bool
 }
 
 func TestNormalizeSumsProcessor(t *testing.T) {
 	testStart := time.Now().Unix()
 	tests := []testCase{
 		{
-			name:       "simple-case",
-			inputs:     generateSimpleInput(testStart),
-			expected:   generateSimpleInput(testStart)[0],
-			transforms: make([]SumMetrics, 0),
+			name:         "simple-case",
+			inputs:       generateSimpleInput(testStart),
+			expected:     generateSimpleInput(testStart)[0],
+			transforms:   make([]SumMetrics, 0),
+			transformAll: false,
 		},
 		{
 			name:     "removed-metric-case",
@@ -57,6 +59,7 @@ func TestNormalizeSumsProcessor(t *testing.T) {
 					MetricName: "m1",
 				},
 			},
+			transformAll: false,
 		},
 		{
 			name:     "one-metric-happy-case",
@@ -67,6 +70,14 @@ func TestNormalizeSumsProcessor(t *testing.T) {
 					MetricName: "m1",
 				},
 			},
+			transformAll: false,
+		},
+		{
+			name:         "transform-all-happy-case",
+			inputs:       generateSimpleInput(testStart),
+			expected:     generateTransformAllCaseOutput(testStart),
+			transforms:   []SumMetrics{},
+			transformAll: true,
 		},
 		{
 			name:     "more-complex-case",
@@ -81,12 +92,13 @@ func TestNormalizeSumsProcessor(t *testing.T) {
 					NewName:    "newM2",
 				},
 			},
+			transformAll: false,
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			nsp := newNormalizeSumsProcessor(zap.NewExample(), tt.transforms)
+			nsp := newNormalizeSumsProcessor(zap.NewExample(), tt.transforms, tt.transformAll)
 
 			tmn := &consumertest.MetricsSink{}
 			id := config.NewID(typeStr)
@@ -191,6 +203,28 @@ func generateOneMetricHappyCaseOutput(startTime int64) pdata.Metrics {
 	mb2 := b.addMetric("m2", pdata.MetricDataTypeDoubleSum, true)
 	mb2.addDoubleDataPoint(3, map[string]string{}, startTime, 0)
 	mb2.addDoubleDataPoint(4, map[string]string{}, startTime+1000, 0)
+
+	mb3 := b.addMetric("m3", pdata.MetricDataTypeDoubleGauge, false)
+	mb3.addDoubleDataPoint(5, map[string]string{}, startTime, 0)
+	mb3.addDoubleDataPoint(6, map[string]string{}, startTime+1000, 0)
+
+	rmb.Build().CopyTo(output.ResourceMetrics())
+	return output
+}
+
+func generateTransformAllCaseOutput(startTime int64) pdata.Metrics {
+	output := pdata.NewMetrics()
+
+	rmb := newResourceMetricsBuilder()
+	b := rmb.addResourceMetrics(nil)
+
+	mb1 := b.addMetric("m1", pdata.MetricDataTypeIntSum, true)
+	// mb1.addIntDataPoint(1, map[string]string{"label1": "value1"}, startTime)
+	mb1.addIntDataPoint(1, map[string]string{}, startTime+1000, startTime)
+
+	mb2 := b.addMetric("m2", pdata.MetricDataTypeDoubleSum, true)
+	//mb2.addDoubleDataPoint(3, map[string]string{}, startTime, 0)
+	mb2.addDoubleDataPoint(1, map[string]string{}, startTime+1000, startTime)
 
 	mb3 := b.addMetric("m3", pdata.MetricDataTypeDoubleGauge, false)
 	mb3.addDoubleDataPoint(5, map[string]string{}, startTime, 0)
