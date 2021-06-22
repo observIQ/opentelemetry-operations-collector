@@ -31,7 +31,7 @@ func TestLoadConfig(t *testing.T) {
 	factory := NewFactory()
 	factories.Processors[typeStr] = factory
 
-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "transform_cpu_config.yaml"), factories)
+	cfg, err := configtest.LoadConfig(path.Join(".", "testdata", "transform_cpu_config.yaml"), factories)
 	assert.NoError(t, err)
 	assert.NotNil(t, cfg)
 
@@ -50,7 +50,7 @@ func TestLoadConfig(t *testing.T) {
 	}
 	assert.Equal(t, p1, expectedCfg)
 
-	cfg, err = configtest.LoadConfigFile(t, path.Join(".", "testdata", "transform_all_config.yaml"), factories)
+	cfg, err = configtest.LoadConfig(path.Join(".", "testdata", "transform_all_config.yaml"), factories)
 	assert.NoError(t, err)
 	assert.NotNil(t, cfg)
 

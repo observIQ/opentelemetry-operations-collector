@@ -7,8 +7,9 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter v0.28.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricstransformprocessor v0.28.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor v0.28.0
-	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver v0.27.0
-	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver v0.27.1-0.20210520014849-f89ebd27b3e5
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/httpdreceiver v0.0.0-20210622143655-cc2154632229
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver v0.28.0
+	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver v0.28.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusexecreceiver v0.28.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver v0.28.0
 	github.com/shirou/gopsutil v3.21.5+incompatible
@@ -17,3 +18,5 @@ require (
 	go.uber.org/zap v1.17.0
 	golang.org/x/sys v0.0.0-20210514084401-e8d321eab015
 )
+
+replace github.com/open-telemetry/opentelemetry-collector-contrib/receiver/httpdreceiver => github.com/observIQ/opentelemetry-collector-contrib/receiver/httpdreceiver v0.0.0-20210622143655-cc2154632229

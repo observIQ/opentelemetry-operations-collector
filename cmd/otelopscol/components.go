@@ -18,6 +18,7 @@ import (
 	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/metricstransformprocessor"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/receiver/httpdreceiver"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/receiver/prometheusexecreceiver"
@@ -47,6 +48,7 @@ func components() (component.Factories, error) {
 	}
 
 	receivers := []component.ReceiverFactory{
+		httpdreceiver.NewFactory(),
 		jmxreceiver.NewFactory(),
 		prometheusexecreceiver.NewFactory(),
 		nginxreceiver.NewFactory(),
