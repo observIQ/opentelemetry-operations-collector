@@ -32,11 +32,13 @@ type NormalizeSumsProcessor struct {
 }
 
 type startPoint struct {
-	dataType        pdata.MetricDataType
-	intDataPoint    *pdata.IntDataPoint
-	doubleDataPoint *pdata.DoubleDataPoint
-	lastIntValue    int64
-	lastDoubleValue float64
+	intDataPoint            *pdata.IntDataPoint
+	intPotentialClockChange *pdata.IntDataPoint
+	lastIntValue            int64
+
+	doubleDataPoint            *pdata.DoubleDataPoint
+	doublePotentialClockChange *pdata.DoubleDataPoint
+	lastDoubleValue            float64
 }
 
 func newNormalizeSumsProcessor(logger *zap.Logger, transforms []Transform) *NormalizeSumsProcessor {
@@ -163,12 +165,10 @@ func (nsp *NormalizeSumsProcessor) processDoubleSumDataPoint(dp pdata.DoubleData
 	// If this is the first time we've observed this unique metric,
 	// record it as the start point and do not report this data point
 	if start == nil {
-		dps := metric.DoubleSum().DataPoints()
 		newDP := pdata.NewDoubleDataPoint()
-		dps.At(0).CopyTo(newDP)
+		dp.CopyTo(newDP)
 
 		newStart := startPoint{
-			dataType:        pdata.MetricDataTypeDoubleSum,
 			doubleDataPoint: &newDP,
 			lastDoubleValue: newDP.Value(),
 		}
@@ -177,10 +177,22 @@ func (nsp *NormalizeSumsProcessor) processDoubleSumDataPoint(dp pdata.DoubleData
 		return false
 	}
 
-	// If this data is older than the start point, we can't
-	// meaningfully report this point
 	if dp.Timestamp() <= start.doubleDataPoint.Timestamp() {
-		return false
+		if start.doublePotentialClockChange != nil && dp.Timestamp() > start.doublePotentialClockChange.Timestamp() {
+			// This is the second data point we've seen that implies that the clock was reset in
+			// some way , let's consider the first one the new "start" point moving forward.
+			start.doubleDataPoint = start.doublePotentialClockChange
+			start.lastDoubleValue = start.doubleDataPoint.Value()
+			start.doublePotentialClockChange = nil
+		} else {
+			// If this data is older than the start point, we can't
+			// meaningfully report this point, but we'll take note of it and if the next is also
+			// older than start
+			newDP := pdata.NewDoubleDataPoint()
+			dp.CopyTo(newDP)
+			start.doublePotentialClockChange = &newDP
+			return false
+		}
 	}
 
 	// If data has rolled over or the counter has been restarted for
@@ -196,6 +208,9 @@ func (nsp *NormalizeSumsProcessor) processDoubleSumDataPoint(dp pdata.DoubleData
 	dp.SetValue(dp.Value() - start.doubleDataPoint.Value())
 	dp.SetStartTimestamp(start.doubleDataPoint.Timestamp())
 
+	// Clean up any potential Clock Reset/Change data point
+	start.doublePotentialClockChange = nil
+
 	return true
 }
 
@@ -206,12 +221,10 @@ func (nsp *NormalizeSumsProcessor) processIntSumDataPoint(dp pdata.IntDataPoint,
 	// If this is the first time we've observed this unique metric,
 	// record it as the start point and do not report this data point
 	if start == nil {
-		dps := metric.IntSum().DataPoints()
 		newDP := pdata.NewIntDataPoint()
-		dps.At(0).CopyTo(newDP)
+		dp.CopyTo(newDP)
 
 		newStart := startPoint{
-			dataType:     pdata.MetricDataTypeIntSum,
 			intDataPoint: &newDP,
 			lastIntValue: newDP.Value(),
 		}
@@ -220,10 +233,23 @@ func (nsp *NormalizeSumsProcessor) processIntSumDataPoint(dp pdata.IntDataPoint,
 		return false
 	}
 
-	// If this data is older than the start point, we can't
-	// meaningfully report this point
+	// If the data point appears to be older than the start,
 	if dp.Timestamp() <= start.intDataPoint.Timestamp() {
-		return false
+		if start.intPotentialClockChange != nil && dp.Timestamp() > start.intPotentialClockChange.Timestamp() {
+			// This is the second data point we've seen that implies that the clock was reset in
+			// some way , let's consider the first one the new "start" point moving forward.
+			start.intDataPoint = start.intPotentialClockChange
+			start.lastIntValue = start.intDataPoint.Value()
+			start.intPotentialClockChange = nil
+		} else {
+			// If this data is older than the start point, we can't
+			// meaningfully report this point, but we'll take note of it and if the next is also
+			// older than start
+			newDP := pdata.NewIntDataPoint()
+			dp.CopyTo(newDP)
+			start.intPotentialClockChange = &newDP
+			return false
+		}
 	}
 
 	// If data has rolled over or the counter has been restarted for
@@ -238,6 +264,8 @@ func (nsp *NormalizeSumsProcessor) processIntSumDataPoint(dp pdata.IntDataPoint,
 	start.lastIntValue = dp.Value()
 	dp.SetValue(dp.Value() - start.intDataPoint.Value())
 	dp.SetStartTimestamp(start.intDataPoint.Timestamp())
+
+	start.intPotentialClockChange = nil
 
 	return true
 }
