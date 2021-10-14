@@ -35,7 +35,6 @@ func TestCreateDefaultConfig(t *testing.T) {
 
 func validateConfigFromFactories(factories component.Factories) error {
 	var errs error
-
 	for _, factory := range factories.Receivers {
 		errs = multierr.Append(errs, configtest.CheckConfigStruct(factory.CreateDefaultConfig()))
 	}
