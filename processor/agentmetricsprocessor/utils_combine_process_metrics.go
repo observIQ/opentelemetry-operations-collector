@@ -161,9 +161,9 @@ func (cm convertedMetric) append(metric pmetric.Metric, resource pcommon.Resourc
 
 	switch t := metric.DataType(); t {
 	case pmetric.MetricDataTypeSum:
-		err = appendNumberDataSlice(metric.Sum().DataPoints(), cm.Sum().DataPoints(), resource)
+		err = appendNumberDataSlice(metric.Sum().DataPoints(), cm.Metric.Sum().DataPoints(), resource)
 	case pmetric.MetricDataTypeGauge:
-		err = appendNumberDataSlice(metric.Gauge().DataPoints(), cm.Gauge().DataPoints(), resource)
+		err = appendNumberDataSlice(metric.Gauge().DataPoints(), cm.Metric.Gauge().DataPoints(), resource)
 	}
 
 	return err
