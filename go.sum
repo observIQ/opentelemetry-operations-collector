@@ -1131,8 +1131,8 @@ github.com/open-telemetry/opentelemetry-collector-contrib/receiver/apachereceive
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/apachereceiver v0.59.0/go.mod h1:C3pUFaQOC+48uaqrIfdgEzDv2otd8HjlAI0EhNcF9QA=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/couchdbreceiver v0.59.0 h1:AQ5D7xXKT3qSzwMgYA+MBuYTO6N8vVWcUav8VHYvNrg=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/couchdbreceiver v0.59.0/go.mod h1:uc7nYKMctb0+CGZP51z3GEloA31A9iuqZVsqIwKsCTI=
-github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.0 h1:/NP3azpJrzDftvcL1g8QCcTWO5szKWZ0F0y4xISisgc=
-github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.0/go.mod h1:IrJHT88w3l+hDHR9zKc2brm23ssYQWpoyA+0EKeektw=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220909145955-f75569e8afb8 h1:6pYoYlon2A0dEN4hUfz2RXMnfe0OWvE3XHaFhWkZOSg=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220909145955-f75569e8afb8/go.mod h1:SAEnEdCkhTL7E4Lo1iic7f9gOWnt61DEe7Ibn7td9Ek=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver v0.59.0 h1:PL4PYBOnD/Nevai0J7ScvguofR49GprlbefCYI0nQRc=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver v0.59.0/go.mod h1:O7H5ZPDsQRwYJOtgsF0ge39LBjtCq7TPSZOrYAo538c=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver v0.59.0 h1:9/ckw6gE0MaZAZiafhYrp3eC+/DhCk89Kc4kn2vbXL0=
