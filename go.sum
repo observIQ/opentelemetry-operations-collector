@@ -495,8 +495,9 @@ github.com/hashicorp/consul/sdk v0.10.0 h1:rGLEh2AWK4K0KCMvqWAz2EYxQqgciIfMagWZ0
 github.com/hashicorp/consul/sdk v0.10.0/go.mod h1:yPkX5Q6CsxTFMjQQDJwzeNmUUF5NUGGbrDsv9wTb8cw=
 github.com/hashicorp/cronexpr v1.1.1 h1:NJZDd87hGXjoZBdvyCF9mX4DCq5Wy7+A/w+A7q0wn6c=
 github.com/hashicorp/cronexpr v1.1.1/go.mod h1:P4wA0KBl9C5q2hABiMO7cp6jcIg96CDh1Efb3g1PWA4=
-github.com/hashicorp/errwrap v1.0.0 h1:hLrqtEDnRye3+sgx6z4qVLNuviH3MR5aQ0ykNJa/UYA=
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
+github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
+github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
 github.com/hashicorp/go-cleanhttp v0.5.1/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
 github.com/hashicorp/go-cleanhttp v0.5.2 h1:035FKYIWjmULyFRBKPs8TBQoi0x6d9G4xc9neXJWAZQ=
@@ -726,6 +727,8 @@ github.com/onsi/gomega v1.7.1/go.mod h1:XdKZgCCFLUoM/7CFJVPcG8C1xQ1AJ0vpAezJrB7J
 github.com/onsi/gomega v1.10.1/go.mod h1:iN09h71vgCQne3DLsj+A5owkum+a2tYe+TOCB1ybHNo=
 github.com/onsi/gomega v1.15.0/go.mod h1:cIuvLEne0aoVhAgh/O6ac0Op8WWw9H6eYCriF+tEHG0=
 github.com/onsi/gomega v1.19.0 h1:4ieX6qQjPP/BfC3mpsAtIGGlxTWPeA3Inl/7DtXw1tw=
+github.com/open-telemetry/opentelemetry-collector-contrib v0.59.1-0.20220913185248-26bab7e1e66f h1:ZDSKfQOzFnzQQ/E75F2lGrs3upkHf1HVCY2d41NgRtY=
+github.com/open-telemetry/opentelemetry-collector-contrib v0.59.1-0.20220913185248-26bab7e1e66f/go.mod h1:mej+xEy3BHs+OEb9nvZIe3o/b5dOjIgVuuvb8wJBTRk=
 github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter v0.59.0 h1:DPsEXX2Z+NhlPlhs2XvZdx3njrdGu89M+jYnrW5Fi6U=
 github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter v0.59.0/go.mod h1:PXapW0E1vEAW2v0tVQonmJusk5psmkAuGCdTpFi2rDQ=
 github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter v0.59.0 h1:uGXDpCLUinHJy9QZv9V1jZ1TOfftVr3VzF0QPRg4sI0=
@@ -774,6 +777,8 @@ github.com/open-telemetry/opentelemetry-collector-contrib/receiver/couchdbreceiv
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/couchdbreceiver v0.59.0/go.mod h1:uc7nYKMctb0+CGZP51z3GEloA31A9iuqZVsqIwKsCTI=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220913003409-90cc1c0b707c h1:HjbIyeKqAvxmRCKn85n7OxLjxckheGgKvnPE8SoeAFE=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220913003409-90cc1c0b707c/go.mod h1:7IwdECbSgdjw0M5fCTwWXztQXjgyeEMj9ZCWWP7/1d0=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220913185248-26bab7e1e66f h1:KJTUsjm01LjV9W2Fz3t1MU7bzyBFBk9TXAbjsPhp8jE=
+github.com/open-telemetry/opentelemetry-collector-contrib/receiver/elasticsearchreceiver v0.59.1-0.20220913185248-26bab7e1e66f/go.mod h1:jS8Bhsqx+9K3wPiNq4Kx+UqGkt4MFa+OOYNuUBz67GQ=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver v0.59.0 h1:PL4PYBOnD/Nevai0J7ScvguofR49GprlbefCYI0nQRc=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/flinkmetricsreceiver v0.59.0/go.mod h1:O7H5ZPDsQRwYJOtgsF0ge39LBjtCq7TPSZOrYAo538c=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/hostmetricsreceiver v0.59.0 h1:9/ckw6gE0MaZAZiafhYrp3eC+/DhCk89Kc4kn2vbXL0=
