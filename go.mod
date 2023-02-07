@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/NVIDIA/go-dcgm v0.0.0-20221107203308-b6ed78cdc8d3
 	github.com/NVIDIA/go-nvml v0.11.6-0
+	github.com/hooklift/gowsdl v0.5.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/exporter/fileexporter v0.67.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlecloudexporter v0.67.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/exporter/googlemanagedprometheusexporter v0.67.0

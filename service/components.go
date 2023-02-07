@@ -67,6 +67,7 @@ import (
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/receiver/dcgmreceiver"
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/receiver/mongodbreceiver"
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/receiver/nvmlreceiver"
+	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/receiver/sapnetweaverreceiver"
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/receiver/varnishreceiver"
 )
 
@@ -112,6 +113,7 @@ func components() (component.Factories, error) {
 		rabbitmqreceiver.NewFactory(),
 		varnishreceiver.NewFactory(),
 		saphanareceiver.NewFactory(),
+		sapnetweaverreceiver.NewFactory(),
 		sqlqueryreceiver.NewFactory(),
 	}
 	for _, rcv := range factories.Receivers {
