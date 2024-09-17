@@ -50,12 +50,12 @@ func TestComponentLifecycle(t *testing.T) {
 
 	tests := []struct {
 		name     string
-		createFn func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error)
+		createFn func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error)
 	}{
 
 		{
 			name: "metrics",
-			createFn: func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error) {
+			createFn: func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error) {
 				return factory.CreateMetricsReceiver(ctx, set, cfg, consumertest.NewNop())
 			},
 		},
