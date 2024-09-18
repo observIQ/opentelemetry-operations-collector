@@ -380,3 +380,5 @@ require (
 
 // Currently causes build issues on windows. Downgrading to previous version.
 replace github.com/mattn/go-ieproxy v0.0.9 => github.com/mattn/go-ieproxy v0.0.1
+
+replace github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.102.0 => github.com/observiq/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.0.0-20240604105205-6b1d3dd2c0c0

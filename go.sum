@@ -687,6 +687,8 @@ github.com/mxk/go-flowrate v0.0.0-20140419014527-cca7078d478f/go.mod h1:ZdcZmHo+
 github.com/nginxinc/nginx-prometheus-exporter v0.11.0 h1:21xjnqNgxtni2jDgAQ90bl15uDnrTreO9sIlu1YsX/U=
 github.com/nginxinc/nginx-prometheus-exporter v0.11.0/go.mod h1:GdyHnWAb8q8OW1Pssrrqbcqra0SH0Vn6UXICMmyWkw8=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
+github.com/observiq/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.0.0-20240604105205-6b1d3dd2c0c0 h1:qNFP4SAsR5b3MimQgG+9SgqBiRBw7I6QKuN1PaKEclM=
+github.com/observiq/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.0.0-20240604105205-6b1d3dd2c0c0/go.mod h1:b24+nd+hL9SXqtftu8iFBQq+JjjDcwMGEOrESbIYnU4=
 github.com/oklog/ulid v1.3.1 h1:EGfNDEx6MqHz8B3uNV6QAib1UR2Lm97sHi3ocA6ESJ4=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/onsi/ginkgo v0.0.0-20170829012221-11459a886d9c/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
@@ -781,8 +783,6 @@ github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver v
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/jmxreceiver v0.102.0/go.mod h1:cbxye4vCXzz+0qUFaC2UKzTF3u8YGJzuKKBdniWWAGM=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/memcachedreceiver v0.102.0 h1:vFdMR0YI1q8EXmU45v4aCcvBAQhw/Hna2NOeLbOq19Y=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/memcachedreceiver v0.102.0/go.mod h1:Aqxh4w+WJz/3BRhw2F4PbNIPoBljgUcucFevk7ZLYvc=
-github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.102.0 h1:KdblRIO1GqQ7VoA8OID/cy8qjgqqguUT6scntBC0bHs=
-github.com/open-telemetry/opentelemetry-collector-contrib/receiver/mysqlreceiver v0.102.0/go.mod h1:b24+nd+hL9SXqtftu8iFBQq+JjjDcwMGEOrESbIYnU4=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver v0.102.0 h1:cN1CU0SGYF7E6DtyYFAGmY6fZk//TDsCVvRQy+bFzGc=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/nginxreceiver v0.102.0/go.mod h1:JKvhgc9yMMan55baGWZy80c0oQ90rAjc6C/c9hBoNO4=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/postgresqlreceiver v0.102.0 h1:Nd3HxOibi4yPkf592iLbpulhxCVFeJIq6cBdOoiXOIU=
