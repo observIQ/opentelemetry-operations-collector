@@ -9,7 +9,7 @@ require (
 	github.com/golangci/golangci-lint v1.52.1
 	github.com/google/addlicense v1.1.1
 	github.com/google/googet v2.13.0+incompatible
-	go.opentelemetry.io/collector/cmd/mdatagen v0.109.0
+	go.opentelemetry.io/collector/cmd/mdatagen v0.110.0
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d
 )
 
@@ -153,7 +153,7 @@ require (
 	github.com/sourcegraph/go-diff v0.7.0 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
-	github.com/spf13/cobra v1.6.1 // indirect
+	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.15.0 // indirect
@@ -175,15 +175,17 @@ require (
 	github.com/yagipy/maintidx v1.0.0 // indirect
 	github.com/yeya24/promlinter v0.2.0 // indirect
 	gitlab.com/bosi/decorder v0.2.3 // indirect
-	go.opentelemetry.io/collector/component v0.109.0 // indirect
-	go.opentelemetry.io/collector/config/configtelemetry v0.109.0 // indirect
-	go.opentelemetry.io/collector/confmap v1.15.0 // indirect
-	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.15.0 // indirect
-	go.opentelemetry.io/collector/filter v0.109.0 // indirect
-	go.opentelemetry.io/collector/pdata v1.15.0 // indirect
-	go.opentelemetry.io/otel v1.29.0 // indirect
-	go.opentelemetry.io/otel/metric v1.29.0 // indirect
-	go.opentelemetry.io/otel/trace v1.29.0 // indirect
+	go.opentelemetry.io/collector/component v0.110.0 // indirect
+	go.opentelemetry.io/collector/config/configtelemetry v0.110.0 // indirect
+	go.opentelemetry.io/collector/confmap v1.16.0 // indirect
+	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.16.0 // indirect
+	go.opentelemetry.io/collector/filter v0.110.0 // indirect
+	go.opentelemetry.io/collector/internal/globalsignal v0.110.0 // indirect
+	go.opentelemetry.io/collector/pdata v1.16.0 // indirect
+	go.opentelemetry.io/collector/pipeline v0.110.0 // indirect
+	go.opentelemetry.io/otel v1.30.0 // indirect
+	go.opentelemetry.io/otel/metric v1.30.0 // indirect
+	go.opentelemetry.io/otel/trace v1.30.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29 // indirect
@@ -191,10 +193,10 @@ require (
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.28.0 // indirect
 	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.24.0 // indirect
-	golang.org/x/text v0.17.0 // indirect
+	golang.org/x/sys v0.25.0 // indirect
+	golang.org/x/text v0.18.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240822170219-fc7c04adadcd // indirect
-	google.golang.org/grpc v1.66.0 // indirect
+	google.golang.org/grpc v1.66.2 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

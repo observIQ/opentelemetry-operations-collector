@@ -750,6 +750,10 @@ github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/prometh
 github.com/open-telemetry/opentelemetry-collector-contrib/pkg/translator/prometheusremotewrite v0.110.0/go.mod h1:1Wtt98ZX9nQTXLHxpfOQn89ysHFe0r9heVXeMvIeUpI=
 github.com/open-telemetry/opentelemetry-collector-contrib/pkg/winperfcounters v0.110.0 h1:4MGauH+vBo6oUxe4B5FxAE3lbIm/ngIPFje4rFrERgU=
 github.com/open-telemetry/opentelemetry-collector-contrib/pkg/winperfcounters v0.110.0/go.mod h1:0w7ITvUQWC3H6n/L0a/Biq66sf4ySG55HelRj1FyvvI=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/cumulativetodeltaprocessor v0.110.0 h1:x+BMYPeHGaN8W72Af39Yp67jwLWoaT2IBFSnWNg3Hig=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/cumulativetodeltaprocessor v0.110.0/go.mod h1:ithGeLGk363AhUv8Mu69WJw0yxuFHmjURXpYUZtYGIk=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/deltatorateprocessor v0.110.0 h1:+BOpUeoYqgZVRSr6ZxX1R4tEqqwq0/Ukq9dr7yIuPfw=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/deltatorateprocessor v0.110.0/go.mod h1:l8vOVovOKC8at4iZdeeMJwSE33aaDoz4NO8kX6Xvh0U=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor v0.110.0 h1:aRSjwgOPOiSaVSaENT4V1mFPbQBdhoeUt2hnniXFwwU=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/filterprocessor v0.110.0/go.mod h1:w41+RvLuyyH3t0czrbjMXBr/RXVuKZDmkqfoVoWodM8=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/groupbyattrsprocessor v0.110.0 h1:8eTDHIUvGWsPLM4jeoC/0818FYBe7LyNViP+Ufk7YsM=

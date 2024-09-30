@@ -35,6 +35,7 @@ import (
 	"go.opentelemetry.io/collector/consumer/consumertest"
 	"go.opentelemetry.io/collector/receiver"
 	"go.opentelemetry.io/collector/receiver/receivertest"
+	"go.uber.org/zap/zaptest"
 )
 
 func TestComponentFactoryType(t *testing.T) {
@@ -43,6 +44,12 @@ func TestComponentFactoryType(t *testing.T) {
 
 func TestComponentConfigStruct(t *testing.T) {
 	require.NoError(t, componenttest.CheckConfigStruct(NewFactory().CreateDefaultConfig()))
+}
+
+func newCreateSettings(t *testing.T) receiver.Settings {
+	settings := receivertest.NewNopSettings()
+	settings.Logger = zaptest.NewLogger(t)
+	return settings
 }
 
 func TestComponentLifecycle(t *testing.T) {
@@ -70,19 +77,19 @@ func TestComponentLifecycle(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name+"-shutdown", func(t *testing.T) {
-			c, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+			c, err := test.createFn(context.Background(), newCreateSettings(t), cfg)
 			require.NoError(t, err)
 			err = c.Shutdown(context.Background())
 			require.NoError(t, err)
 		})
 		t.Run(test.name+"-lifecycle", func(t *testing.T) {
-			firstRcvr, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+			firstRcvr, err := test.createFn(context.Background(), newCreateSettings(t), cfg)
 			require.NoError(t, err)
 			host := componenttest.NewNopHost()
 			require.NoError(t, err)
 			require.NoError(t, firstRcvr.Start(context.Background(), host))
 			require.NoError(t, firstRcvr.Shutdown(context.Background()))
-			secondRcvr, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+			secondRcvr, err := test.createFn(context.Background(), newCreateSettings(t), cfg)
 			require.NoError(t, err)
 			require.NoError(t, secondRcvr.Start(context.Background(), host))
 			require.NoError(t, secondRcvr.Shutdown(context.Background()))
