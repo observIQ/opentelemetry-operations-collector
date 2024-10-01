@@ -29,7 +29,6 @@ import (
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/internal/levelchanger"
 	"github.com/GoogleCloudPlatform/opentelemetry-operations-collector/internal/version"
 
-	expandconverter "go.opentelemetry.io/collector/confmap/converter/expandconverter"
 	envprovider "go.opentelemetry.io/collector/confmap/provider/envprovider"
 	fileprovider "go.opentelemetry.io/collector/confmap/provider/fileprovider"
 	httpprovider "go.opentelemetry.io/collector/confmap/provider/httpprovider"
@@ -60,7 +59,6 @@ func MainContext(ctx context.Context) {
 					httpprovider.NewFactory(),
 					httpsprovider.NewFactory(),
 				},
-				ConverterFactories: []confmap.ConverterFactory{expandconverter.NewFactory()},
 			},
 		},
 		LoggingOptions: []zap.Option{
